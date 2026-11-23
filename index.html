@@ -1,0 +1,1283 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密基地_原创影像社区,记录每一处真实的私藏角落</title>
+<meta name="description" content="秘密基地官方网站，专注原创高清影像的垂直内容社区，汇聚创作者与真实生活记录，展示品牌故事、企业动态与精品内容。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23273226'/%3E%3Cpath d='M14 42 L24 22 L34 36 L42 26 L50 42 Z' fill='%23e8c15a'/%3E%3Ccircle cx='44' cy='20' r='5' fill='%23d96a4a'/%3E%3C/svg%3E">
+<style>
+:root{
+  --sm-base-bg:#f6f4ec;
+  --sm-base-paper:#fffdf7;
+  --sm-ink:#273226;
+  --sm-ink-soft:#55604f;
+  --sm-green:#3d5c43;
+  --sm-green-deep:#2a3f2e;
+  --sm-moss:#7f9468;
+  --sm-earth:#b08a5a;
+  --sm-earth-soft:#e8ddc6;
+  --sm-gold:#d3a437;
+  --sm-line:#dcd6c4;
+  --sm-radius:16px;
+  --sm-pad:clamp(16px,3vw,34px);
+  --sm-max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:130px}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--sm-base-bg);
+  color:var(--sm-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 1em}
+ul{margin:0;padding:0;list-style:none}
+.sm-wrap{width:100%;max-width:var(--sm-max);margin:0 auto;padding-left:var(--sm-pad);padding-right:var(--sm-pad)}
+.sm-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ============ 吸顶公告 + 页头 ============ */
+.sm-sticky{position:sticky;top:0;z-index:60}
+.sm-notice{
+  background:linear-gradient(90deg,var(--sm-green-deep),var(--sm-green) 65%,var(--sm-moss));
+  color:#f2f0e4;font-size:13.5px;
+}
+.sm-notice .sm-wrap{display:flex;align-items:center;gap:12px;padding-top:9px;padding-bottom:9px;flex-wrap:wrap}
+.sm-notice-tag{
+  background:var(--sm-gold);color:#2c2410;font-weight:700;font-size:12px;
+  padding:2px 9px;border-radius:999px;letter-spacing:.5px;flex:none;
+}
+.sm-notice-list{display:flex;gap:22px;overflow:hidden;flex:1 1 auto;white-space:nowrap;mask-image:linear-gradient(90deg,#000 88%,transparent)}
+.sm-notice-list span{flex:none;opacity:.95}
+.sm-notice-list b{color:#f6d985;font-weight:600}
+.sm-notice-time{flex:none;opacity:.72;font-variant-numeric:tabular-nums}
+.sm-header{
+  background:rgba(246,244,236,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--sm-line);
+}
+.sm-header .sm-wrap{display:flex;align-items:center;gap:18px;padding-top:12px;padding-bottom:12px}
+.sm-brand{display:flex;align-items:center;gap:10px;flex:none}
+.sm-brand-mark{width:38px;height:38px;border-radius:11px;background:var(--sm-green-deep);display:grid;place-items:center;flex:none}
+.sm-brand-name{font-size:19px;font-weight:800;letter-spacing:1px}
+.sm-brand-sub{font-size:11px;color:var(--sm-ink-soft);letter-spacing:2.5px;margin-top:-4px}
+.sm-nav{display:flex;gap:4px;margin-left:10px;flex-wrap:wrap}
+.sm-nav a{padding:7px 11px;border-radius:9px;font-size:14.5px;color:var(--sm-ink-soft);transition:.2s}
+.sm-nav a:hover{background:#e9e5d5;color:var(--sm-green-deep)}
+.sm-search{margin-left:auto;display:flex;align-items:center;gap:0;position:relative;flex:0 1 250px;min-width:150px}
+.sm-search input{
+  width:100%;border:1px solid var(--sm-line);background:var(--sm-base-paper);
+  border-radius:999px;padding:8px 38px 8px 15px;font-size:13.5px;color:var(--sm-ink);outline:none;transition:.2s;
+}
+.sm-search input:focus{border-color:var(--sm-moss);box-shadow:0 0 0 3px rgba(127,148,104,.18)}
+.sm-search button{
+  position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  border:0;background:var(--sm-green);color:#fff;width:29px;height:29px;border-radius:50%;
+  display:grid;place-items:center;font-size:13px;
+}
+.sm-search-hint{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border:1px solid var(--sm-line);
+  border-radius:12px;padding:8px;font-size:13px;color:var(--sm-ink-soft);box-shadow:0 12px 28px rgba(39,50,38,.12);
+  display:none;z-index:70;
+}
+.sm-search-hint.sm-on{display:block}
+.sm-search-hint b{color:var(--sm-green-deep)}
+.sm-burger{
+  display:none;margin-left:auto;border:1px solid var(--sm-line);background:var(--sm-base-paper);
+  width:40px;height:38px;border-radius:10px;flex-direction:column;justify-content:center;align-items:center;gap:4px;
+}
+.sm-burger span{width:18px;height:2px;background:var(--sm-ink);border-radius:2px;transition:.25s}
+.sm-burger.sm-on span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.sm-burger.sm-on span:nth-child(2){opacity:0}
+.sm-burger.sm-on span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.sm-mobile-menu{display:none;border-bottom:1px solid var(--sm-line);background:var(--sm-base-paper)}
+.sm-mobile-menu.sm-on{display:block}
+.sm-mobile-menu ul{padding:8px var(--sm-pad) 14px}
+.sm-mobile-menu a{display:block;padding:10px 2px;border-bottom:1px dashed var(--sm-line);font-size:15px}
+
+/* ============ 通用文字与按钮 ============ */
+.sm-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:2px;
+  color:var(--sm-earth);font-weight:700;text-transform:uppercase;margin-bottom:10px;
+}
+.sm-eyebrow::before{content:"";width:22px;height:2px;background:var(--sm-earth);border-radius:2px}
+.sm-h2{font-size:clamp(22px,2.6vw,30px);letter-spacing:.5px}
+.sm-h2 em{font-style:normal;color:var(--sm-green)}
+.sm-lead{color:var(--sm-ink-soft);font-size:15px;max-width:62ch}
+.sm-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 22px;border-radius:999px;font-size:14.5px;font-weight:600;border:1px solid transparent;
+  transition:.22s;background:var(--sm-green);color:#fdfdf6;
+}
+.sm-btn:hover{background:var(--sm-green-deep);transform:translateY(-1px)}
+.sm-btn-ghost{background:transparent;border-color:var(--sm-green);color:var(--sm-green-deep)}
+.sm-btn-ghost:hover{background:rgba(61,92,67,.09);color:var(--sm-green-deep)}
+.sm-btn-earth{background:var(--sm-earth);color:#fff9ef}
+.sm-btn-earth:hover{background:#96734a}
+.sm-btn-sm{padding:6px 14px;font-size:13px}
+.sm-section{padding:clamp(46px,5.5vw,76px) 0}
+.sm-section-alt{background:var(--sm-base-paper);border-top:1px solid var(--sm-line);border-bottom:1px solid var(--sm-line)}
+.sm-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.sm-section-head .sm-lead{margin-top:8px}
+.sm-tag{
+  display:inline-block;padding:3px 10px;border-radius:999px;background:rgba(127,148,104,.16);
+  color:var(--sm-green-deep);font-size:12px;font-weight:600;margin-right:6px;
+}
+.sm-tag-earth{background:rgba(176,138,90,.18);color:#7a5a30}
+.sm-tag-gold{background:rgba(211,164,55,.2);color:#7d5f13}
+
+/* ============ 首屏 ============ */
+.sm-hero{padding:clamp(30px,4vw,56px) 0 clamp(40px,5vw,66px);position:relative;overflow:hidden}
+.sm-hero::after{
+  content:"";position:absolute;inset:auto -12% -40% 40%;height:420px;
+  background:radial-gradient(circle,rgba(127,148,104,.22),transparent 66%);pointer-events:none;
+}
+.sm-hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,5fr);gap:clamp(24px,4vw,52px);align-items:center;position:relative;z-index:1}
+.sm-hero-badge{
+  display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--sm-line);
+  border-radius:999px;padding:5px 14px;font-size:12.5px;color:var(--sm-green-deep);font-weight:600;margin-bottom:18px;
+}
+.sm-hero-badge i{width:7px;height:7px;border-radius:50%;background:var(--sm-gold);display:inline-block}
+.sm-hero h1{font-size:clamp(34px,5.4vw,58px);letter-spacing:2px;line-height:1.16}
+.sm-hero h1 small{display:block;font-size:clamp(14px,1.6vw,17px);font-weight:500;letter-spacing:4px;color:var(--sm-earth);margin-top:12px}
+.sm-hero-desc{font-size:15.5px;color:var(--sm-ink-soft);margin:20px 0 24px;max-width:56ch}
+.sm-hero-desc b{color:var(--sm-green-deep)}
+.sm-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.sm-hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:430px}
+.sm-stat{background:rgba(255,253,247,.9);border:1px solid var(--sm-line);border-radius:12px;padding:11px 13px}
+.sm-stat strong{display:block;font-size:22px;color:var(--sm-green-deep);font-variant-numeric:tabular-nums;line-height:1.3}
+.sm-stat span{font-size:12px;color:var(--sm-ink-soft)}
+.sm-hero-visual{position:relative}
+.sm-hero-figure{border-radius:22px;overflow:hidden;box-shadow:0 24px 50px -24px rgba(42,63,46,.5);position:relative}
+.sm-hero-figure img{width:100%;aspect-ratio:4/3.2;object-fit:cover}
+.sm-hero-play{
+  position:absolute;left:18px;bottom:18px;display:flex;align-items:center;gap:10px;
+  background:rgba(255,253,247,.94);border-radius:999px;padding:7px 16px 7px 7px;font-size:13px;font-weight:600;color:var(--sm-green-deep);
+}
+.sm-hero-play i{
+  width:30px;height:30px;border-radius:50%;background:var(--sm-green);color:#fff;display:grid;place-items:center;font-style:normal;font-size:11px;
+}
+.sm-hero-float{
+  position:absolute;right:-6px;top:-16px;background:var(--sm-green-deep);color:#f0eddd;
+  border-radius:14px;padding:12px 16px;font-size:12.5px;box-shadow:0 14px 30px -14px rgba(42,63,46,.7);max-width:180px;line-height:1.6;
+}
+.sm-hero-float b{color:var(--sm-gold);display:block;font-size:15px;letter-spacing:1px}
+
+/* ============ 品牌解析 ============ */
+.sm-parse{display:grid;grid-template-columns:minmax(0,1fr);gap:26px}
+.sm-parse-cols{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:clamp(24px,4vw,48px);align-items:start}
+.sm-parse h3{font-size:17.5px;margin:22px 0 8px;color:var(--sm-green-deep)}
+.sm-parse h3:first-child{margin-top:0}
+.sm-parse p{font-size:14.8px;color:#414d3e}
+.sm-parse-aside{background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:var(--sm-radius);padding:22px;position:sticky;top:150px}
+.sm-parse-aside h3{font-size:15px;margin-bottom:12px;color:var(--sm-earth);letter-spacing:1px}
+.sm-parse-aside li{font-size:13.6px;color:var(--sm-ink-soft);padding:9px 0;border-bottom:1px dashed var(--sm-line);display:flex;gap:10px}
+.sm-parse-aside li:last-child{border-bottom:0}
+.sm-parse-aside li b{color:var(--sm-green-deep);font-variant-numeric:tabular-nums;flex:none;min-width:64px}
+
+/* ============ 焦点内容 ============ */
+.sm-focus-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(22px,3.5vw,40px);align-items:start}
+.sm-focus-main{background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:var(--sm-radius);overflow:hidden;transition:.25s}
+.sm-focus-main:hover{box-shadow:0 20px 40px -26px rgba(42,63,46,.55);transform:translateY(-3px)}
+.sm-focus-main img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.sm-focus-body{padding:20px 22px 24px}
+.sm-focus-body h3{font-size:20px;margin:10px 0 8px}
+.sm-focus-body p{font-size:14.5px;color:var(--sm-ink-soft);margin-bottom:14px}
+.sm-focus-meta{display:flex;gap:16px;font-size:12.5px;color:var(--sm-ink-soft);flex-wrap:wrap;margin-bottom:14px}
+.sm-focus-side{display:flex;flex-direction:column;gap:14px}
+.sm-mini-card{
+  display:grid;grid-template-columns:86px minmax(0,1fr);gap:14px;background:var(--sm-base-paper);
+  border:1px solid var(--sm-line);border-radius:14px;padding:12px;align-items:center;transition:.22s;
+}
+.sm-mini-card:hover{border-color:var(--sm-moss);transform:translateY(-2px)}
+.sm-mini-card img{width:86px;aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.sm-mini-card h3{font-size:14.5px;margin-bottom:4px}
+.sm-mini-card p{font-size:12.8px;color:var(--sm-ink-soft);margin:0 0 6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ============ 视频列表 ============ */
+.sm-video-list{display:flex;flex-direction:column;gap:2px;background:var(--sm-line);border:1px solid var(--sm-line);border-radius:var(--sm-radius);overflow:hidden}
+.sm-video-row{
+  background:var(--sm-base-paper);display:grid;grid-template-columns:52px minmax(0,1fr) auto;
+  gap:16px;padding:18px 20px;align-items:start;transition:.2s;
+}
+.sm-video-row:hover{background:#fdfbf1}
+.sm-video-num{
+  font-size:22px;font-weight:800;color:var(--sm-earth-soft);font-variant-numeric:tabular-nums;line-height:1.2;
+  -webkit-text-stroke:1px var(--sm-earth);letter-spacing:-1px;
+}
+.sm-video-row h3{font-size:16px;margin-bottom:6px}
+.sm-video-row h3 span{font-size:12px;font-weight:500;color:var(--sm-moss);margin-left:6px}
+.sm-video-row p{font-size:13.2px;color:var(--sm-ink-soft);margin-bottom:8px}
+.sm-video-tags{margin-bottom:8px}
+.sm-video-stats{display:flex;gap:14px;font-size:12px;color:var(--sm-ink-soft);flex-wrap:wrap;align-items:center}
+.sm-video-ops{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;max-width:250px}
+.sm-op{
+  border:1px solid var(--sm-line);background:var(--sm-base-paper);border-radius:999px;padding:5px 12px;
+  font-size:12.5px;color:var(--sm-ink-soft);display:inline-flex;align-items:center;gap:5px;transition:.2s;
+}
+.sm-op:hover{border-color:var(--sm-green);color:var(--sm-green-deep)}
+.sm-op.sm-liked{background:rgba(217,106,74,.12);border-color:#d96a4a;color:#b34d31}
+.sm-op.sm-saved{background:rgba(211,164,55,.16);border-color:var(--sm-gold);color:#7d5f13}
+.sm-op .sm-count{font-variant-numeric:tabular-nums}
+
+/* ============ 专题 ============ */
+.sm-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.sm-topic-card{
+  background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:var(--sm-radius);
+  padding:22px;display:flex;flex-direction:column;transition:.25s;position:relative;overflow:hidden;
+}
+.sm-topic-card::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--sm-green),var(--sm-gold))}
+.sm-topic-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -28px rgba(42,63,46,.6)}
+.sm-topic-card img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:11px;margin-bottom:14px}
+.sm-topic-card h3{font-size:17px;margin-bottom:8px}
+.sm-topic-card > p{font-size:13.4px;color:var(--sm-ink-soft);margin-bottom:12px}
+.sm-topic-status{
+  align-self:flex-start;font-size:11.5px;padding:3px 10px;border-radius:999px;background:rgba(61,92,67,.12);color:var(--sm-green-deep);margin-bottom:12px;
+}
+.sm-topic-status.sm-ongoing{background:rgba(217,106,74,.14);color:#a8472d}
+.sm-topic-items{margin-top:auto;border-top:1px dashed var(--sm-line);padding-top:12px}
+.sm-topic-items li{font-size:13px;color:#4a5747;padding:6px 0 6px 16px;position:relative}
+.sm-topic-items li::before{content:"·";position:absolute;left:2px;color:var(--sm-earth);font-weight:800}
+
+/* ============ 作者 ============ */
+.sm-authors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.sm-author{
+  display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;
+  background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:var(--sm-radius);padding:20px;transition:.22s;
+}
+.sm-author:hover{border-color:var(--sm-moss);transform:translateY(-2px)}
+.sm-avatar{
+  width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:22px;font-weight:800;color:#fff;flex:none;
+  box-shadow:inset 0 0 0 3px rgba(255,255,255,.35);
+}
+.sm-author h3{font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sm-author h3 .sm-role{font-size:11px;font-weight:600;color:var(--sm-earth);background:var(--sm-earth-soft);padding:2px 8px;border-radius:999px}
+.sm-author p{font-size:13.2px;color:var(--sm-ink-soft);margin:8px 0 10px}
+.sm-author-meta{display:flex;gap:16px;font-size:12px;color:var(--sm-ink-soft);flex-wrap:wrap}
+.sm-author-meta b{color:var(--sm-green-deep);font-variant-numeric:tabular-nums}
+.sm-author-btn{margin-top:10px}
+
+/* ============ 评价 ============ */
+.sm-rating-summary{
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;align-items:center;
+  background:var(--sm-green-deep);color:#f1eede;border-radius:var(--sm-radius);padding:26px 28px;margin-bottom:26px;
+}
+.sm-rating-score{text-align:center;line-height:1.1}
+.sm-rating-score strong{font-size:52px;font-variant-numeric:tabular-nums;color:var(--sm-gold);display:block}
+.sm-rating-score span{font-size:12.5px;opacity:.82}
+.sm-rating-bars li{font-size:13px;display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.sm-rating-bars li span:first-child{flex:none;min-width:52px;opacity:.86}
+.sm-bar{flex:1;height:7px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden;min-width:60px}
+.sm-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sm-moss),var(--sm-gold));border-radius:99px}
+.sm-rating-bars li b{font-variant-numeric:tabular-nums;flex:none;min-width:44px;text-align:right;opacity:.85;font-weight:500}
+.sm-comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sm-comment{
+  background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:14px;padding:18px 20px;
+}
+.sm-comment-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.sm-comment-head .sm-avatar{width:34px;height:34px;font-size:14px;box-shadow:none}
+.sm-comment-head strong{font-size:13.6px}
+.sm-comment-head span{margin-left:auto;font-size:11.5px;color:var(--sm-moss)}
+.sm-comment p{font-size:13.4px;color:#46533f;margin:0}
+.sm-comment p b{color:var(--sm-green-deep)}
+.sm-stars{color:var(--sm-gold);letter-spacing:2px;font-size:12px}
+
+/* ============ 动态/更新日志 ============ */
+.sm-log{border-left:2px dashed var(--sm-line);margin-left:8px;padding-left:24px;display:flex;flex-direction:column;gap:20px}
+.sm-log-item{position:relative}
+.sm-log-item::before{
+  content:"";position:absolute;left:-32px;top:7px;width:11px;height:11px;border-radius:50%;
+  background:var(--sm-base-paper);border:2px solid var(--sm-moss);
+}
+.sm-log-item time{font-size:12px;color:var(--sm-earth);font-weight:700;letter-spacing:.5px;font-variant-numeric:tabular-nums}
+.sm-log-item h3{font-size:15.5px;margin:5px 0 4px}
+.sm-log-item p{font-size:13.2px;color:var(--sm-ink-soft);margin:0}
+
+/* ============ 合作墙 ============ */
+.sm-partners{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sm-partner{
+  background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:12px;padding:18px 14px;text-align:center;transition:.22s;
+}
+.sm-partner:hover{border-color:var(--sm-earth);transform:translateY(-2px)}
+.sm-partner strong{display:block;font-size:14.5px;letter-spacing:.5px;color:var(--sm-green-deep)}
+.sm-partner span{font-size:11.5px;color:var(--sm-ink-soft)}
+
+/* ============ FAQ ============ */
+.sm-faq{display:flex;flex-direction:column;gap:10px}
+.sm-faq details{
+  background:var(--sm-base-paper);border:1px solid var(--sm-line);border-radius:12px;padding:0 18px;transition:.2s;
+}
+.sm-faq details[open]{border-color:var(--sm-moss);background:#fffef9}
+.sm-faq summary{
+  list-style:none;cursor:pointer;padding:15px 26px 15px 0;font-size:14.6px;font-weight:600;position:relative;color:var(--sm-green-deep);
+}
+.sm-faq summary::-webkit-details-marker{display:none}
+.sm-faq summary::after{
+  content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:19px;color:var(--sm-earth);font-weight:400;transition:.2s;
+}
+.sm-faq details[open] summary::after{content:"−";color:var(--sm-green)}
+.sm-faq p{font-size:13.6px;color:var(--sm-ink-soft);margin:0 0 16px;padding-right:16px}
+
+/* ============ 投稿入口 ============ */
+.sm-cta{
+  background:linear-gradient(120deg,var(--sm-green-deep),#3f5c45 58%,#5a7350);
+  color:#f2efdf;border-radius:22px;padding:clamp(28px,4vw,46px);display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:28px;align-items:center;position:relative;overflow:hidden;
+}
+.sm-cta::after{content:"";position:absolute;right:-80px;bottom:-120px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(211,164,55,.35),transparent 68%)}
+.sm-cta h2{font-size:clamp(20px,2.4vw,27px);margin-bottom:10px}
+.sm-cta p{font-size:14px;opacity:.88;margin:0}
+.sm-cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;position:relative;z-index:1}
+.sm-cta .sm-btn{background:var(--sm-gold);color:#2c2410}
+.sm-cta .sm-btn:hover{background:#e5b64a;color:#241d0c}
+.sm-cta .sm-btn-ghost{border-color:rgba(242,239,223,.55);color:#f2efdf;background:transparent}
+.sm-cta .sm-btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ============ 页脚 ============ */
+.sm-footer{background:#20291f;color:#c9cdbd;padding:52px 0 0;margin-top:0}
+.sm-footer-grid{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:32px;padding-bottom:36px}
+.sm-footer h3{font-size:14px;color:#eceada;margin-bottom:14px;letter-spacing:1.5px}
+.sm-footer p,.sm-footer li{font-size:13px;line-height:2}
+.sm-footer a:hover{color:var(--sm-gold)}
+.sm-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.sm-footer-brand .sm-brand-mark{background:#39513c}
+.sm-footer-brand strong{font-size:17px;color:#f0eedd;letter-spacing:1.5px}
+.sm-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding:18px 0 24px;display:flex;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;font-size:12px;color:#8f988a;
+}
+.sm-footer-bottom a{color:#a9b3a0}
+
+/* ============ 弹窗 & Toast ============ */
+.sm-modal-mask{
+  position:fixed;inset:0;background:rgba(26,34,24,.55);backdrop-filter:blur(3px);
+  display:none;place-items:center;z-index:100;padding:20px;
+}
+.sm-modal-mask.sm-on{display:grid}
+.sm-modal{
+  background:var(--sm-base-paper);border-radius:18px;max-width:480px;width:100%;padding:26px;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);max-height:86vh;overflow:auto;
+}
+.sm-modal h3{font-size:18px;margin-bottom:12px;color:var(--sm-green-deep)}
+.sm-modal p{font-size:13.6px;color:var(--sm-ink-soft)}
+.sm-modal label{display:block;font-size:12.6px;color:var(--sm-ink-soft);margin:12px 0 5px}
+.sm-modal input,.sm-modal textarea{
+  width:100%;border:1px solid var(--sm-line);border-radius:9px;padding:9px 12px;font-size:13.5px;font-family:inherit;
+  background:#fff;outline:none;color:var(--sm-ink);
+}
+.sm-modal textarea{min-height:84px;resize:vertical}
+.sm-modal input:focus,.sm-modal textarea:focus{border-color:var(--sm-moss);box-shadow:0 0 0 3px rgba(127,148,104,.16)}
+.sm-modal-foot{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+.sm-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:var(--sm-green-deep);color:#f5f2e4;
+  padding:11px 22px;border-radius:999px;font-size:13.5px;opacity:0;pointer-events:none;transition:.28s;z-index:120;
+  box-shadow:0 16px 34px -14px rgba(0,0,0,.5);
+}
+.sm-toast.sm-on{opacity:1;transform:translate(-50%,0)}
+.sm-top{
+  position:fixed;right:22px;bottom:24px;width:44px;height:44px;border-radius:50%;border:0;
+  background:var(--sm-green);color:#fff;font-size:16px;display:grid;place-items:center;z-index:80;
+  opacity:0;pointer-events:none;transition:.28s;box-shadow:0 12px 28px -12px rgba(42,63,46,.8);
+}
+.sm-top.sm-on{opacity:1;pointer-events:auto}
+.sm-top:hover{background:var(--sm-green-deep)}
+
+/* ============ 响应式 ============ */
+@media (max-width:1000px){
+  .sm-nav{display:none}
+  .sm-search{order:2;flex:1 1 180px}
+  .sm-burger{display:flex}
+  .sm-hero-grid{grid-template-columns:minmax(0,1fr)}
+  .sm-hero-visual{order:-1}
+  .sm-hero-float{right:6px;top:6px;max-width:150px;padding:9px 12px}
+  .sm-parse-cols{grid-template-columns:minmax(0,1fr)}
+  .sm-parse-aside{position:static}
+  .sm-focus-grid{grid-template-columns:minmax(0,1fr)}
+  .sm-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sm-partners{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .sm-cta{grid-template-columns:minmax(0,1fr)}
+  .sm-cta-actions{justify-content:flex-start}
+  .sm-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:720px){
+  html{scroll-padding-top:150px}
+  .sm-notice-list{mask-image:none;overflow-x:auto;padding-bottom:2px}
+  .sm-notice-time{display:none}
+  .sm-hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .sm-stat strong{font-size:18px}
+  .sm-video-row{grid-template-columns:36px minmax(0,1fr);gap:12px}
+  .sm-video-num{font-size:17px}
+  .sm-video-ops{grid-column:1/-1;justify-content:flex-start;max-width:none;margin-top:6px}
+  .sm-topic-grid{grid-template-columns:minmax(0,1fr)}
+  .sm-authors{grid-template-columns:minmax(0,1fr)}
+  .sm-comments{grid-template-columns:minmax(0,1fr)}
+  .sm-rating-summary{grid-template-columns:minmax(0,1fr);gap:16px;text-align:center;padding:22px}
+  .sm-partners{grid-template-columns:minmax(0,1fr)}
+  .sm-footer-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .sm-hero h1 small{letter-spacing:2px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sm-sticky">
+  <div class="sm-notice">
+    <div class="sm-wrap">
+      <span class="sm-notice-tag">官方发布</span>
+      <div class="sm-notice-list">
+        <span><b>新增</b>「城市夜行·天台篇」4K 正片已上线</span>
+        <span><b>更新</b>创作者扶持计划第二期开放报名，截止 12/06</span>
+        <span><b>上线</b>私藏片单合集页，支持一键收藏与分享</span>
+      </div>
+      <span class="sm-notice-time">2026-11-22</span>
+    </div>
+  </div>
+  <header class="sm-header">
+    <div class="sm-wrap">
+      <a class="sm-brand" href="#sm-hero" aria-label="秘密基地官方网站首页">
+        <span class="sm-brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 17 L9 6 L13 13 L16 9 L21 17 Z" fill="#e8c15a"/><circle cx="18" cy="6" r="2.4" fill="#d96a4a"/></svg>
+        </span>
+        <span>
+          <span class="sm-brand-name">秘密基地</span>
+          <span class="sm-brand-sub">SECRET BASE</span>
+        </span>
+      </a>
+      <nav class="sm-nav" aria-label="主导航">
+        <a href="#sm-brand">品牌</a>
+        <a href="#sm-focus">精选</a>
+        <a href="#sm-videos">影像库</a>
+        <a href="#sm-topics">专题</a>
+        <a href="#sm-authors">创作者</a>
+        <a href="#sm-reviews">口碑</a>
+        <a href="#sm-faq">帮助</a>
+      </nav>
+      <div class="sm-search">
+        <input id="smSearchInput" type="search" placeholder="搜索片名 / 创作者 / 话题" aria-label="站内搜索">
+        <button id="smSearchBtn" type="button" aria-label="搜索">⌕</button>
+        <div class="sm-search-hint" id="smSearchHint" role="status"></div>
+      </div>
+      <button class="sm-burger" id="smBurger" type="button" aria-label="展开导航" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="sm-mobile-menu" id="smMobileMenu">
+      <ul>
+        <li><a href="#sm-brand">品牌解析</a></li>
+        <li><a href="#sm-focus">焦点内容</a></li>
+        <li><a href="#sm-videos">影像库</a></li>
+        <li><a href="#sm-topics">专题企划</a></li>
+        <li><a href="#sm-authors">创作者矩阵</a></li>
+        <li><a href="#sm-reviews">用户口碑</a></li>
+        <li><a href="#sm-news">企业动态</a></li>
+        <li><a href="#sm-faq">常见问题</a></li>
+      </ul>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="sm-hero" id="sm-hero">
+    <div class="sm-wrap">
+      <div class="sm-hero-grid">
+        <div>
+          <span class="sm-hero-badge"><i></i>官方网站 · 品牌自营内容社区</span>
+          <h1>秘密基地<small>把每一处私藏角落，拍成值得反复回看的影像</small></h1>
+          <p class="sm-hero-desc">
+            秘密基地是一家深耕城市生活影像的<b>视频品牌</b>，以原创、高清与真实记录为核心，为创作者搭建从拍摄、剪辑到发布的完整内容生态。
+            我们希望每一个普通人都能在这里找到属于自己的<b>秘密基地</b>——一间旧书店、一条无名小巷、一段周末独处时光，都值得被认真记录。
+          </p>
+          <div class="sm-hero-actions">
+            <a class="sm-btn" href="#sm-videos">进入影像库</a>
+            <a class="sm-btn sm-btn-ghost" href="#sm-topics">查看专题企划</a>
+            <button class="sm-btn sm-btn-earth" id="smSubmitTop" type="button">我要投稿</button>
+          </div>
+          <div class="sm-hero-stats">
+            <div class="sm-stat"><strong>3,860</strong><span>原创高清作品</span></div>
+            <div class="sm-stat"><strong>126,400</strong><span>注册创作者</span></div>
+            <div class="sm-stat"><strong>2,150万</strong><span>累计播放次数</span></div>
+          </div>
+        </div>
+        <div class="sm-hero-visual">
+          <div class="sm-hero-float"><b>本周企划</b>城市夜行·天台篇 4K 正片上线</div>
+          <figure class="sm-hero-figure">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 640'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%232a3f2e'/%3E%3Cstop offset='0.55' stop-color='%23556a4a'/%3E%3Cstop offset='1' stop-color='%23c9a05a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='640' fill='url(%23sky)'/%3E%3Ccircle cx='600' cy='150' r='62' fill='%23f0d68a' opacity='0.9'/%3E%3Crect x='0' y='420' width='800' height='220' fill='%23202a20'/%3E%3Crect x='60' y='300' width='130' height='160' fill='%23334438'/%3E%3Crect x='210' y='250' width='100' height='210' fill='%232c3a2e'/%3E%3Crect x='330' y='330' width='150' height='130' fill='%233a4a39'/%3E%3Crect x='500' y='270' width='120' height='190' fill='%23263428'/%3E%3Crect x='640' y='350' width='120' height='110' fill='%23324032'/%3E%3Cg fill='%23f2d27c' opacity='0.85'%3E%3Crect x='80' y='325' width='18' height='22'/%3E%3Crect x='120' y='325' width='18' height='22'/%3E%3Crect x='226' y='278' width='16' height='20'/%3E%3Crect x='262' y='278' width='16' height='20'/%3E%3Crect x='352' y='356' width='18' height='20'/%3E%3Crect x='396' y='356' width='18' height='20'/%3E%3Crect x='520' y='296' width='16' height='20'/%3E%3Crect x='560' y='296' width='16' height='20'/%3E%3Crect x='664' y='374' width='16' height='18'/%3E%3C/g%3E%3Cpath d='M0 520 Q200 470 400 512 T800 500 L800 640 L0 640 Z' fill='%231a231a'/%3E%3Ccircle cx='160' cy='556' r='12' fill='%23f0d68a'/%3E%3Ccircle cx='205' cy='566' r='8' fill='%23d96a4a'/%3E%3C/svg%3E" width="800" height="640" alt="秘密基地品牌首屏主视觉：黄昏天台与城市轮廓的影像构图">
+            <span class="sm-hero-play"><i>▶</i>宣传片 · 01:48</span>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌解析 -->
+  <section class="sm-section sm-section-alt" id="sm-brand">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Brand Story</span>
+          <h2 class="sm-h2">我们如何理解<em>秘密基地</em>：一个品牌、一部社区影像志</h2>
+          <p class="sm-lead">从一间三十平米的剪辑室开始，秘密基地用六年时间，把「私人角落」变成了一个有影响力的原创影像社区。</p>
+        </div>
+      </div>
+      <div class="sm-parse-cols">
+        <div class="sm-parse">
+          <p>
+            秘密基地官方网站上线于二〇二〇年，最初只是三五个摄影爱好者共享素材的小站。那时我们把城市里不为人注意的角落拍下来：一扇褪色的铁门、一段长满野草的坡道、一家开到凌晨的馄饨铺。这些画面没有宏大叙事，却有真实的生活温度。随着投稿人数增长，我们逐渐意识到，所谓「秘密基地」并不是某个具体地点，而是一种观看世界的方式——愿意放慢脚步，认真看一处被忽略的角落。
+          </p>
+          <h3>平台定位：垂直领域的原创影像社区</h3>
+          <p>
+            今天的秘密基地，是一个专注城市生活影像的垂直内容平台。我们坚持原创与正版授权，所有登上首页的精品内容都经过人工复核；我们提供统一的 4K 高清转码与稳定的播放体验，让创作者不必为技术细节分心。平台目前设有「城市夜行」「旧物新生」「一个人的周末」「巷口观察」四条常设内容线，每条线都有独立的策展编辑与选题日历。对普通用户而言，这里是下班后可以安静刷完十支短片的社区；对企业与机构而言，这里是能触达真实生活场景的优质内容渠道。
+          </p>
+          <h3>创作生态：让创作者被看见，也被善待</h3>
+          <p>
+            内容生态的健康程度，取决于创作者是否愿意长期留下。秘密基地设置了分级扶持机制：新人期提供选题指导与基础流量扶持，成长期提供设备借用与线下工作坊名额，成熟期提供商业合作对接与年度展映机会。我们不做单纯的流量分发，而是让编辑参与共创——很多片子的第一版粗剪，都会在社区工作坊里被一起讨论。过去两年，共有三百余位创作者从这里走向更大的舞台，他们的作品也反过来塑造了平台的口碑。用户至上是我们的底层原则：任何一次改版、任何一条推荐规则，都要先回答「这对观看者和创作者是否更好」。
+          </p>
+          <h3>品牌理念：真实、温暖、持续运营</h3>
+          <p>
+            我们相信影像的力量来自于真实。秘密基地不鼓励摆拍式的精致，而是鼓励创作者记录那些有呼吸感的瞬间：手抖的镜头、没对上的焦、背景里突然传来的叫卖声。这些不完美恰恰构成了生活的质感。品牌成立以来，我们持续运营线下放映会、社区共创挑战与城市影像档案计划，把线上社区延伸到真实的城市空间。未来，秘密基地会继续深耕这一垂直领域，用匠心打磨产品与内容，让更多人相信：每个人心里那处小小的秘密基地，都值得被高清记录、被认真对待。
+          </p>
+        </div>
+        <aside class="sm-parse-aside">
+          <h3>平台速览</h3>
+          <ul>
+            <li><b>成立时间</b>2020 年 4 月，持续运营中</li>
+            <li><b>内容方向</b>城市探索 · 生活方式 · 创作幕后</li>
+            <li><b>技术标准</b>4K 高清转码 · 自适应码率</li>
+            <li><b>审核机制</b>人工复核 + 原创声明</li>
+            <li><b>创作者</b>126,400 位注册作者</li>
+            <li><b>版权</b>正版授权 · 可商用申请</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="sm-section" id="sm-focus">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Featured</span>
+          <h2 class="sm-h2">本周焦点 · <em>秘密基地</em>编辑精选</h2>
+          <p class="sm-lead">由策展编辑从近三百条投稿中挑出，兼顾画面质感与叙事完成度。</p>
+        </div>
+        <a class="sm-btn sm-btn-ghost" href="#sm-videos">查看全部精选</a>
+      </div>
+      <div class="sm-focus-grid">
+        <article class="sm-focus-main">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 540'%3E%3Crect width='960' height='540' fill='%23e9e2d0'/%3E%3Crect x='0' y='300' width='960' height='240' fill='%23c9b48e'/%3E%3Crect x='90' y='140' width='230' height='200' fill='%237f9468'/%3E%3Crect x='110' y='165' width='190' height='150' fill='%233d5c43'/%3E%3Crect x='360' y='90' width='150' height='250' fill='%23b08a5a'/%3E%3Crect x='540' y='180' width='210' height='160' fill='%232a3f2e'/%3E%3Crect x='780' y='120' width='120' height='220' fill='%23d3a437'/%3E%3Ccircle cx='820' cy='90' r='46' fill='%23f0d68a'/%3E%3Cpath d='M0 470 Q240 430 480 462 T960 450 L960 540 L0 540 Z' fill='%23202a20'/%3E%3Cg stroke='%23fffdf7' stroke-width='3' opacity='0.6'%3E%3Cline x1='40' y1='40' x2='120' y2='40'/%3E%3Cline x1='40' y1='40' x2='40' y2='120'/%3E%3Cline x1='920' y1='500' x2='840' y2='500'/%3E%3Cline x1='920' y1='500' x2='920' y2='420'/%3E%3C/g%3E%3C/svg%3E" width="960" height="540" alt="焦点内容封面：老城区屋顶与远处塔楼的清晨光影">
+          <div class="sm-focus-body">
+            <span class="sm-tag">城市探索</span><span class="sm-tag sm-tag-earth">4K 首映</span>
+            <h3>天台上的城市：我们连续拍摄了 90 天的清晨</h3>
+            <p>创作者「林间拾光」把相机架在自家楼顶，固定机位记录同一片天空下九十个清晨。云层移动、晾衣绳晃动、对面窗户逐渐亮起——没有一句旁白，却把一座城市最温柔的苏醒过程讲得完整。本片为秘密基地官方企划「城市夜行」的姊妹篇，附带完整拍摄手记与参数设置。</p>
+            <div class="sm-focus-meta">
+              <span>作者：林间拾光</span><span>时长 12:40</span><span>播放 38.6 万</span><span>收藏 1.9 万</span>
+            </div>
+            <div class="sm-video-ops">
+              <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> 点赞 <span class="sm-count">12460</span></button>
+              <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+              <button class="sm-op sm-share" type="button">分享</button>
+            </div>
+          </div>
+        </article>
+        <div class="sm-focus-side">
+          <article class="sm-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f2ede0'/%3E%3Ccircle cx='100' cy='88' r='46' fill='%23b08a5a'/%3E%3Crect x='54' y='128' width='92' height='60' rx='8' fill='%233d5c43'/%3E%3Ccircle cx='82' cy='82' r='7' fill='%23f2ede0'/%3E%3Ccircle cx='118' cy='82' r='7' fill='%23f2ede0'/%3E%3Cpath d='M86 104 Q100 116 114 104' stroke='%23f2ede0' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E" width="200" height="200" alt="专题缩略图：旧物修复师的手与台灯">
+            <div>
+              <h3>旧物新生：一把 1978 年的木椅修复全过程</h3>
+              <p>从拆榫到上蜡，四十分钟的慢镜头里藏着老手艺人的耐心。</p>
+              <span class="sm-tag sm-tag-gold">手作 DIY</span>
+            </div>
+          </article>
+          <article class="sm-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%232a3f2e'/%3E%3Ccircle cx='64' cy='64' r='30' fill='%23d3a437'/%3E%3Crect x='110' y='40' width='60' height='60' rx='6' fill='%237f9468'/%3E%3Cpath d='M20 160 L80 108 L130 152 L180 120 L180 180 L20 180 Z' fill='%23e8ddc6'/%3E%3C/svg%3E" width="200" height="200" alt="专题缩略图：夜晚巷口的路灯与小摊">
+            <div>
+              <h3>巷口观察：凌晨两点的馄饨铺与它的常客</h3>
+              <p>一碗热汤、三张折叠桌，讲述城市深夜里最稳定的陪伴。</p>
+              <span class="sm-tag">在地文化</span>
+            </div>
+          </article>
+          <article class="sm-mini-card">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23dcd6c4'/%3E%3Crect x='28' y='90' width='144' height='84' rx='10' fill='%233d5c43'/%3E%3Crect x='52' y='52' width='96' height='44' rx='6' fill='%23b08a5a'/%3E%3Ccircle cx='148' cy='132' r='14' fill='%23f0d68a'/%3E%3Crect x='46' y='132' width='52' height='8' rx='4' fill='%23e8ddc6'/%3E%3C/svg%3E" width="200" height="200" alt="专题缩略图：桌面剪辑软件与耳机">
+            <div>
+              <h3>创作幕后：一支 3 分钟短片是如何被剪出来的</h3>
+              <p>从 4 小时素材到最终成片，剪辑师逐帧讲解取舍逻辑。</p>
+              <span class="sm-tag sm-tag-earth">教程干货</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 影像库 -->
+  <section class="sm-section sm-section-alt" id="sm-videos">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Video Library</span>
+          <h2 class="sm-h2">影像库 · <em>秘密基地</em>本周热播</h2>
+          <p class="sm-lead">按播放与互动综合排序，每支片子都附有创作者标签与观看数据。</p>
+        </div>
+        <a class="sm-btn sm-btn-ghost" href="#sm-topics">按专题浏览</a>
+      </div>
+      <div class="sm-video-list">
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">01</div>
+          <div>
+            <h3>凌晨四点的早餐铺：一锅豆浆的六小时 <span>· 深度测评</span></h3>
+            <p>跟拍一家开了二十三年的早餐铺，从磨豆到收摊，完整记录一碗豆浆抵达餐桌的全部过程，也记录店主夫妇的一天。</p>
+            <div class="sm-video-tags"><span class="sm-tag">在地文化</span><span class="sm-tag sm-tag-earth">生活记录</span></div>
+            <div class="sm-video-stats"><span>作者：巷口阿岚</span><span>时长 18:22</span><span>播放 26.4 万</span><span>收藏 8900</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">7320</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">02</div>
+          <div>
+            <h3>把 6 平米阳台改造成迷你花园 <span>· 实用技巧</span></h3>
+            <p>从承重测算、排水改造到植物搭配，创作者用三期视频讲清小空间绿化的全部细节，附完整材料清单与预算表。</p>
+            <div class="sm-video-tags"><span class="sm-tag">家居收纳</span><span class="sm-tag sm-tag-gold">改造实录</span></div>
+            <div class="sm-video-stats"><span>作者：周末造物局</span><span>时长 14:05</span><span>播放 21.8 万</span><span>收藏 1.24 万</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">6120</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">03</div>
+          <div>
+            <h3>一个人去山里住了三天：没有信号的 72 小时 <span>· 户外活动</span></h3>
+            <p>不带手机、只带一台相机和三本书。创作者记录了独处的完整心路，从第一晚的不安到第三天的平静。</p>
+            <div class="sm-video-tags"><span class="sm-tag">治愈影像</span><span class="sm-tag sm-tag-earth">户外</span></div>
+            <div class="sm-video-stats"><span>作者：南山慢递</span><span>时长 22:10</span><span>播放 19.3 万</span><span>收藏 1.06 万</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">5480</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">04</div>
+          <div>
+            <h3>老相机维修师的柜台：每一台机器都有主人 <span>· 人物访谈</span></h3>
+            <p>在被数码时代遗忘的维修铺里，老师傅讲了六个关于相机与人的故事，其中一台相机被送修了四次。</p>
+            <div class="sm-video-tags"><span class="sm-tag">人物访谈</span><span class="sm-tag sm-tag-gold">旧物</span></div>
+            <div class="sm-video-stats"><span>作者：胶片记录者</span><span>时长 16:48</span><span>播放 17.6 万</span><span>收藏 7400</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">4630</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">05</div>
+          <div>
+            <h3>周末厨房：用四十分钟做一周的便当 <span>· 美食烹饪</span></h3>
+            <p>四道家常菜的批量备餐思路，重点讲清保鲜、分装与复热方式，适合工作日的晚餐与次日午餐。</p>
+            <div class="sm-video-tags"><span class="sm-tag">美食烹饪</span><span class="sm-tag sm-tag-earth">实用</span></div>
+            <div class="sm-video-stats"><span>作者：灶前小满</span><span>时长 11:32</span><span>播放 15.2 万</span><span>收藏 9800</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">3980</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+        <article class="sm-video-row">
+          <div class="sm-video-num">06</div>
+          <div>
+            <h3>剪辑思路公开：如何用空镜讲完一个故事 <span>· 教程干货</span></h3>
+            <p>拆解三支优秀短片中的空镜使用方式，给出可直接套用的镜头清单与节奏表，适合刚入门的创作者。</p>
+            <div class="sm-video-tags"><span class="sm-tag">教程干货</span><span class="sm-tag sm-tag-gold">创作幕后</span></div>
+            <div class="sm-video-stats"><span>作者：林间拾光</span><span>时长 13:56</span><span>播放 12.9 万</span><span>收藏 1.15 万</span></div>
+          </div>
+          <div class="sm-video-ops">
+            <button class="sm-op sm-like" type="button"><span class="sm-ic">♡</span> <span class="sm-count">3410</span></button>
+            <button class="sm-op sm-save" type="button"><span class="sm-ic">☆</span> 收藏</button>
+            <button class="sm-op sm-share" type="button">分享</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="sm-section" id="sm-topics">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Projects</span>
+          <h2 class="sm-h2">专题企划 · <em>秘密基地</em>的四条常设内容线</h2>
+          <p class="sm-lead">每条内容线由固定策展编辑维护，按季度更新，接受社区投稿与共创报名。</p>
+        </div>
+      </div>
+      <div class="sm-topic-grid">
+
+        <article class="sm-topic-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231b2620'/%3E%3Ccircle cx='380' cy='60' r='34' fill='%23f0d68a'/%3E%3Crect x='0' y='170' width='480' height='100' fill='%23293a2c'/%3E%3Crect x='40' y='100' width='70' height='110' fill='%23384a38'/%3E%3Crect x='130' y='80' width='60' height='130' fill='%232c3c2e'/%3E%3Crect x='210' y='120' width='90' height='90' fill='%23323f31'/%3E%3Crect x='320' y='95' width='70' height='115' fill='%23263228'/%3E%3Cg fill='%23f2d27c'%3E%3Crect x='54' y='118' width='12' height='14'/%3E%3Crect x='82' y='118' width='12' height='14'/%3E%3Crect x='142' y='98' width='12' height='14'/%3E%3Crect x='172' y='98' width='12' height='14'/%3E%3Crect x='230' y='138' width='12' height='14'/%3E%3Crect x='266' y='138' width='12' height='14'/%3E%3Crect x='334' y='112' width='12' height='14'/%3E%3C/g%3E%3C/svg%3E" width="480" height="270" alt="城市夜行专题封面：夜色里的街巷与暖黄窗灯">
+          <span class="sm-topic-status sm-ongoing">更新中 · 第 3 季</span>
+          <h3>城市夜行</h3>
+          <p>在夜里重新认识一座城市。已收录 46 支短片，覆盖天台、桥洞、夜班公交与便利店等场景。</p>
+          <ul class="sm-topic-items">
+            <li>天台篇：九十个清晨与一片天空</li>
+            <li>桥洞篇：流浪歌手与他固定演出的位置</li>
+            <li>夜班公交篇：末班车上的十二位乘客</li>
+          </ul>
+        </article>
+
+        <article class="sm-topic-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23eae3d2'/%3E%3Crect x='46' y='120' width='150' height='110' rx='8' fill='%23b08a5a'/%3E%3Crect x='66' y='142' width='110' height='66' rx='4' fill='%23e0cfaa'/%3E%3Crect x='236' y='76' width='100' height='154' rx='8' fill='%233d5c43'/%3E%3Ccircle cx='286' cy='140' r='24' fill='%23e8ddc6'/%3E%3Crect x='366' y='140' width='72' height='90' rx='6' fill='%237f9468'/%3E%3Crect x='30' y='230' width='420' height='14' fill='%23c9b48e'/%3E%3C/svg%3E" width="480" height="270" alt="旧物新生专题封面：修复中的木椅与工具箱">
+          <span class="sm-topic-status">长期征稿 · 每月精选</span>
+          <h3>旧物新生</h3>
+          <p>记录物件被修复、被改造、被重新使用的过程。我们关心手艺，也关心物件背后的情感。</p>
+          <ul class="sm-topic-items">
+            <li>1978 年的木椅修复全过程</li>
+            <li>把旧牛仔裤改成两个工具袋</li>
+            <li>一台随身听的清洁与换带实录</li>
+          </ul>
+        </article>
+
+        <article class="sm-topic-card">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%232a3f2e'/%3E%3Cpath d='M0 200 L120 130 L230 190 L330 120 L480 200 L480 270 L0 270 Z' fill='%23445c40'/%3E%3Ccircle cx='120' cy='70' r='30' fill='%23f0d68a'/%3E%3Cpath d='M260 70 L320 40 L380 70 L320 100 Z' fill='%23b08a5a'/%3E%3Crect x='300' y='92' width='40' height='20' fill='%23e8ddc6'/%3E%3C/svg%3E" width="480" height="270" alt="一个人的周末专题封面：山间小屋与远山剪影">
+          <span class="sm-topic-status sm-ongoing">开放共创 · 报名中</span>
+          <h3>一个人的周末</h3>
+          <p>独处不是空白。我们邀请创作者记录周末独自度过的方式，从做饭到远足，从发呆到写字。</p>
+          <ul class="sm-topic-items">
+            <li>没有信号的 72 小时山里独处</li>
+            <li>一个人在家的完整星期六</li>
+            <li>骑车去城郊看一场日落</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="sm-section sm-section-alt" id="sm-authors">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Creators</span>
+          <h2 class="sm-h2">创作者矩阵 · <em>秘密基地</em>的长期共建者</h2>
+          <p class="sm-lead">他们用镜头持续记录真实生活，也是社区气质的主要塑造者。</p>
+        </div>
+        <a class="sm-btn sm-btn-ghost" href="#sm-cta">申请成为作者</a>
+      </div>
+      <div class="sm-authors">
+
+        <article class="sm-author">
+          <div class="sm-avatar" style="background:linear-gradient(135deg,#3d5c43,#7f9468)">林</div>
+          <div>
+            <h3>林间拾光 <span class="sm-role">签约创作者</span></h3>
+            <p>专注城市清晨与自然光摄影，擅长用固定机位和长镜头记录时间流逝。作品节奏克制，画面干净，是社区里被反复学习参考的样本。</p>
+            <div class="sm-author-meta"><span>作品 <b>86</b></span><span>粉丝 <b>12.4 万</b></span><span>领域 <b>城市观察</b></span></div>
+            <button class="sm-btn sm-btn-sm sm-btn-ghost sm-author-btn" type="button" data-author="林间拾光|城市清晨与自然光摄影，固定机位长镜头记录时间流逝，作品节奏克制、画面干净。|86|12.4万">查看作者</button>
+          </div>
+        </article>
+
+        <article class="sm-author">
+          <div class="sm-avatar" style="background:linear-gradient(135deg,#b08a5a,#d3a437)">巷</div>
+          <div>
+            <h3>巷口阿岚 <span class="sm-role">在地记录者</span></h3>
+            <p>长期跟拍老城区的早餐铺、修鞋摊与菜市场，擅长与被访者建立长期信任，把日常劳动拍出令人信服的细节与尊严感。</p>
+            <div class="sm-author-meta"><span>作品 <b>64</b></span><span>粉丝 <b>9.8 万</b></span><span>领域 <b>在地文化</b></span></div>
+            <button class="sm-btn sm-btn-sm sm-btn-ghost sm-author-btn" type="button" data-author="巷口阿岚|长期跟拍老城区早餐铺与菜市场，擅长建立长期信任关系，把日常劳动拍出细节与尊严。|64|9.8万">查看作者</button>
+          </div>
+        </article>
+
+        <article class="sm-author">
+          <div class="sm-avatar" style="background:linear-gradient(135deg,#55604f,#2a3f2e)">周</div>
+          <div>
+            <h3>周末造物局 <span class="sm-role">教程作者</span></h3>
+            <p>家居改造与手作方向创作者，每支片子都附带可下载的材料清单，讲究可复现性，被用户称为「最不怕被模仿的作者」。</p>
+            <div class="sm-author-meta"><span>作品 <b>112</b></span><span>粉丝 <b>15.6 万</b></span><span>领域 <b>改造手作</b></span></div>
+            <button class="sm-btn sm-btn-sm sm-btn-ghost sm-author-btn" type="button" data-author="周末造物局|家居改造与手作方向创作者，每支片子附可下载材料清单，强调可复现性，实操性极强。|112|15.6万">查看作者</button>
+          </div>
+        </article>
+
+        <article class="sm-author">
+          <div class="sm-avatar" style="background:linear-gradient(135deg,#d96a4a,#b08a5a)">南</div>
+          <div>
+            <h3>南山慢递 <span class="sm-role">户外影像</span></h3>
+            <p>偏爱无信号的山野与缓慢的行走，作品里常有风声和脚步声。她主张记录旅途中的不适与犹疑，而非只呈现风景明信片。</p>
+            <div class="sm-author-meta"><span>作品 <b>58</b></span><span>粉丝 <b>8.2 万</b></span><span>领域 <b>户外记录</b></span></div>
+            <button class="sm-btn sm-btn-sm sm-btn-ghost sm-author-btn" type="button" data-author="南山慢递|专注无信号山野与缓慢行走的影像，主张记录旅途中的不适与犹疑，保留真实呼吸感。|58|8.2万">查看作者</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户口碑 -->
+  <section class="sm-section" id="sm-reviews">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Voices</span>
+          <h2 class="sm-h2">用户口碑 · 他们这样看<em>秘密基地</em></h2>
+          <p class="sm-lead">来自观看者、创作者与合作伙伴的真实反馈，人工筛选后展示。</p>
+        </div>
+      </div>
+      <div class="sm-rating-summary">
+        <div class="sm-rating-score">
+          <strong>4.8</strong>
+          <span>综合评分 / 5.0</span>
+          <div class="sm-stars">★★★★★</div>
+        </div>
+        <ul class="sm-rating-bars">
+          <li><span>画面质量</span><span class="sm-bar"><i style="width:96%"></i></span><b>4.8</b></li>
+          <li><span>内容真实度</span><span class="sm-bar"><i style="width:94%"></i></span><b>4.7</b></li>
+          <li><span>社区氛围</span><span class="sm-bar"><i style="width:92%"></i></span><b>4.6</b></li>
+          <li><span>创作者支持</span><span class="sm-bar"><i style="width:90%"></i></span><b>4.5</b></li>
+        </ul>
+      </div>
+      <div class="sm-comments">
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#7f9468,#3d5c43)">顾</div>
+            <strong>顾小满</strong><span>观看者 · 2 小时前</span>
+          </div>
+          <p>在这里连着看了三个晚上，最大的感受是<b>安静</b>。没有夸张的音效和标题，就是老老实实拍一件事，看完心里是踏实的。</p>
+        </article>
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#b08a5a,#d3a437)">禾</div>
+            <strong>禾川</strong><span>创作者 · 昨天</span>
+          </div>
+          <p>第一次投稿就被编辑私信给了修改建议，从片头节奏到字幕字号都写了，这种认真程度在别的平台不太常见。</p>
+        </article>
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#2a3f2e,#55604f)">老</div>
+            <strong>老周修表</strong><span>受访者 · 3 天前</span>
+          </div>
+          <p>他们来我店里拍了两次，每次都提前问清楚哪些镜头不能拍。片子出来我女儿看了两遍，说把我拍得比她印象里精神。</p>
+        </article>
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#d96a4a,#b08a5a)">木</div>
+            <strong>木木不木</strong><span>观看者 · 4 天前</span>
+          </div>
+          <p>画质是真的好，投到客厅的电视上播也不糊。缺点是收藏夹里已经堆了八十多支，看不过来，希望出一个按观看进度整理的片单。</p>
+        </article>
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#d3a437,#7f9468)">阿</div>
+            <strong>阿禾的猫</strong><span>观看者 · 5 天前</span>
+          </div>
+          <p>喜欢「一个人的周末」这个企划，看到很多人跟我一样在周末做饭、洗衣服、发会儿呆，突然没那么焦虑了。</p>
+        </article>
+
+        <article class="sm-comment">
+          <div class="sm-comment-head">
+            <div class="sm-avatar" style="background:linear-gradient(135deg,#3d5c43,#b08a5a)">林</div>
+            <strong>林区放映员</strong><span>合作方 · 一周前</span>
+          </div>
+          <p>我们线下放映会用了他们三支片子，授权流程清晰，素材给的是高清原始文件，还主动提供了字幕，合作体验很省心。</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 + 合作 -->
+  <section class="sm-section sm-section-alt" id="sm-news">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Newsroom</span>
+          <h2 class="sm-h2">企业动态 · <em>秘密基地</em>官方发布</h2>
+          <p class="sm-lead">平台更新、活动公告与创作者计划进展，均以官方渠道为准。</p>
+        </div>
+      </div>
+      <div class="sm-log">
+        <div class="sm-log-item">
+          <time>2026-11-18</time>
+          <h3>「城市夜行·天台篇」4K 正片上线，同步开放幕后手记</h3>
+          <p>主创团队整理了完整拍摄参数、器材清单与后期流程，可在专题页免费查看，欢迎创作者对照练习。</p>
+        </div>
+        <div class="sm-log-item">
+          <time>2026-11-10</time>
+          <h3>创作者扶持计划第二期启动报名</h3>
+          <p>本期共 40 个名额，提供设备借用、选题辅导与线下工作坊，报名截止 12 月 6 日，结果于 12 月 12 日公布。</p>
+        </div>
+        <div class="sm-log-item">
+          <time>2026-10-28</time>
+          <h3>社区共创挑战「我的十分钟」上线</h3>
+          <p>以十分钟为时长上限征集短片，不限题材与器材，最终入选作品将进入年度线下展映。</p>
+        </div>
+        <div class="sm-log-item">
+          <time>2026-10-09</time>
+          <h3>播放页改版：新增片单连续播放与无障碍字幕</h3>
+          <p>本次更新优化了长视频加载速度，并为全部官方企划片补充了人工校对字幕，提升观看体验。</p>
+        </div>
+      </div>
+      <div style="margin-top:38px">
+        <h3 style="font-size:17px;margin-bottom:16px;color:var(--sm-green-deep)">合作品牌与机构</h3>
+        <div class="sm-partners">
+          <div class="sm-partner"><strong>城市影像档案馆</strong><span>内容共建</span></div>
+          <div class="sm-partner"><strong>栖野书店</strong><span>线下放映</span></div>
+          <div class="sm-partner"><strong>慢递咖啡</strong><span>场景合作</span></div>
+          <div class="sm-partner"><strong>青禾手作工坊</strong><span>专题共创</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 投稿 CTA -->
+  <section class="sm-section" id="sm-cta">
+    <div class="sm-wrap">
+      <div class="sm-cta">
+        <div>
+          <h2>把你心里的秘密基地，交给更多人看见</h2>
+          <p>支持 4K 投稿、原创声明与版权保护。通过审核的作品将进入官方企划候选池，并有机会参与年度展映与商业合作。</p>
+        </div>
+        <div class="sm-cta-actions">
+          <button class="sm-btn" id="smSubmitBtn" type="button">立即投稿</button>
+          <a class="sm-btn sm-btn-ghost" href="#sm-faq">投稿规则</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="sm-section sm-section-alt" id="sm-faq">
+    <div class="sm-wrap">
+      <div class="sm-section-head">
+        <div>
+          <span class="sm-eyebrow">Help</span>
+          <h2 class="sm-h2">常见问题 · 关于<em>秘密基地</em>官网</h2>
+          <p class="sm-lead">投稿、观看、版权与合作相关问题集中解答，未覆盖的问题可通过反馈入口提交。</p>
+        </div>
+      </div>
+      <div class="sm-faq">
+        <details>
+          <summary>投稿需要满足什么条件？</summary>
+          <p>作品需为原创或已获得完整授权，时长不限，建议分辨率不低于 1080P。提交时请填写创作说明与素材来源，并勾选原创声明。涉及他人肖像与私人场所的内容，需提供被访者同意信息。</p>
+        </details>
+        <details>
+          <summary>平台是否收费？观看者与创作者需要付费吗？</summary>
+          <p>目前观看与投稿均不收费。官方企划中的商业合作项目会写明分成方式，所有商业合作均由创作者自愿选择参与，平台不强制签署排他协议。</p>
+        </details>
+        <details>
+          <summary>作品审核一般需要多久？</summary>
+          <p>通常为三到五个工作日。遇到节假日或投稿高峰期可能延长，审核结果会通过站内消息告知。若被退回，会附上具体修改建议，创作者可修改后重新提交。</p>
+        </details>
+        <details>
+          <summary>我可以在其他平台同步发布吗？</summary>
+          <p>可以。秘密基地不要求独家首发，但使用官方企划名义、平台出资拍摄或参与商业合作的作品，需按当次合作约定执行，具体条款会在合作前单独说明。</p>
+        </details>
+        <details>
+          <summary>如何申请正版授权用于线下放映？</summary>
+          <p>通过页面底部的反馈入口提交机构名称、放映场次与用途说明，我们会在两个工作日内联系。非商业性质的小型社区放映，通常可直接获得免费授权。</p>
+        </details>
+        <details>
+          <summary>创作者扶持计划怎么报名？</summary>
+          <p>在专题页或企业动态中找到当期报名入口，填写作品链接与创作计划。评审以作品完成度与持续创作意愿为主，不以粉丝量为主要依据。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="sm-footer">
+  <div class="sm-wrap">
+    <div class="sm-footer-grid">
+      <div>
+        <div class="sm-footer-brand">
+          <span class="sm-brand-mark" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 17 L9 6 L13 13 L16 9 L21 17 Z" fill="#e8c15a"/><circle cx="18" cy="6" r="2.4" fill="#d96a4a"/></svg>
+          </span>
+          <strong>秘密基地</strong>
+        </div>
+        <p>秘密基地官方网站｜原创高清影像社区<br>专注城市生活记录，持续运营的创作者内容生态。<br>我们相信真实的影像自有力量。</p>
+        <p style="font-size:12.5px;color:#8f988a;margin-top:14px">联系邮箱：hello@secretbase.example<br>合作与授权：license@secretbase.example</p>
+      </div>
+      <div>
+        <h3>内容</h3>
+        <ul>
+          <li><a href="#sm-focus">编辑精选</a></li>
+          <li><a href="#sm-videos">影像库</a></li>
+          <li><a href="#sm-topics">专题企划</a></li>
+          <li><a href="#sm-authors">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>关于</h3>
+        <ul>
+          <li><a href="#sm-brand">品牌故事</a></li>
+          <li><a href="#sm-news">企业动态</a></li>
+          <li><a href="#sm-reviews">用户口碑</a></li>
+          <li><a href="#sm-faq">帮助中心</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>参与</h3>
+        <ul>
+          <li><a href="#sm-cta">作品投稿</a></li>
+          <li><a href="#sm-cta">扶持计划</a></li>
+          <li><a href="#sm-faq">授权申请</a></li>
+          <li><a href="#sm-faq" id="smFeedbackLink">意见反馈</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="sm-footer-bottom">
+      <span>© 2020–2026 秘密基地（Secret Base Media） 版权所有 · 持续运营中</span>
+      <span>原创内容均受版权保护 · 未经授权禁止转载 · 备案号：示例备案 00000000 号</span>
+    </div>
+  </div>
+</footer>
+
+<button class="sm-top" id="smTopBtn" type="button" aria-label="回到顶部">↑</button>
+<div class="sm-toast" id="smToast" role="status" aria-live="polite"></div>
+
+<!-- 作者弹窗 -->
+<div class="sm-modal-mask" id="smAuthorModal" role="dialog" aria-modal="true" aria-labelledby="smAuthorTitle">
+  <div class="sm-modal">
+    <h3 id="smAuthorTitle">创作者档案</h3>
+    <p id="smAuthorBody"></p>
+    <div class="sm-modal-foot">
+      <button class="sm-btn sm-btn-sm sm-btn-ghost" type="button" data-close="smAuthorModal">关闭</button>
+      <button class="sm-btn sm-btn-sm" type="button" id="smAuthorFollow">关注作者</button>
+    </div>
+  </div>
+</div>
+
+<!-- 投稿弹窗 -->
+<div class="sm-modal-mask" id="smSubmitModal" role="dialog" aria-modal="true" aria-labelledby="smSubmitTitle">
+  <div class="sm-modal">
+    <h3 id="smSubmitTitle">向秘密基地投稿</h3>
+    <p>填写基本信息，编辑会在三个工作日内与你联系。请确保作品为原创或已获得完整授权。</p>
+    <label for="smSubmitName">作者昵称</label>
+    <input id="smSubmitName" type="text" placeholder="例如：巷口阿岚">
+    <label for="smSubmitTitleInput">作品标题</label>
+    <input id="smSubmitTitleInput" type="text" placeholder="例如：天台上的城市">
+    <label for="smSubmitDesc">创作说明</label>
+    <textarea id="smSubmitDesc" placeholder="简单描述拍摄对象、使用器材与想表达的意图"></textarea>
+    <div class="sm-modal-foot">
+      <button class="sm-btn sm-btn-sm sm-btn-ghost" type="button" data-close="smSubmitModal">取消</button>
+      <button class="sm-btn sm-btn-sm" type="button" id="smSubmitConfirm">提交投稿</button>
+    </div>
+  </div>
+</div>
+
+<!-- 分享弹窗 -->
+<div class="sm-modal-mask" id="smShareModal" role="dialog" aria-modal="true" aria-labelledby="smShareTitle">
+  <div class="sm-modal">
+    <h3 id="smShareTitle">分享这支片子</h3>
+    <p>把秘密基地的内容分享给朋友，让更多人看到真实的记录。</p>
+    <div class="sm-modal-foot" style="justify-content:flex-start">
+      <button class="sm-btn sm-btn-sm sm-btn-earth" type="button" id="smCopyLink">复制链接</button>
+      <button class="sm-btn sm-btn-sm sm-btn-ghost" type="button" data-close="smShareModal">关闭</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* Toast */
+  var toastEl = document.getElementById('smToast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('sm-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('sm-on'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('smBurger');
+  var mobileMenu = document.getElementById('smMobileMenu');
+  burger.addEventListener('click', function(){
+    var on = mobileMenu.classList.toggle('sm-on');
+    burger.classList.toggle('sm-on', on);
+    burger.setAttribute('aria-expanded', on ? 'true' : 'false');
+  });
+  mobileMenu.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      mobileMenu.classList.remove('sm-on');
+      burger.classList.remove('sm-on');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* 搜索反馈 */
+  var input = document.getElementById('smSearchInput');
+  var searchBtn = document.getElementById('smSearchBtn');
+  var hint = document.getElementById('smSearchHint');
+  var pool = ['城市夜行','天台上的城市','旧物新生','一个人的周末','巷口观察','剪辑思路','早餐铺','木椅修复','南山慢递','创作者扶持计划'];
+  function doSearch(){
+    var kw = input.value.trim();
+    if(!kw){
+      hint.innerHTML = '试试搜索 <b>天台</b>、<b>旧物</b> 或 <b>剪辑</b>';
+      hint.classList.add('sm-on');
+      return;
+    }
+    var hit = pool.filter(function(item){ return item.indexOf(kw) !== -1; });
+    if(hit.length){
+      hint.innerHTML = '找到 <b>' + hit.length + '</b> 条相关内容：' + hit.slice(0,4).join(' · ');
+    }else{
+      hint.innerHTML = '暂未找到「<b>' + kw.replace(/[<>&]/g,'') + '</b>」相关内容，已记录为反馈建议。';
+    }
+    hint.classList.add('sm-on');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ doSearch(); } });
+  input.addEventListener('input', function(){
+    if(input.value.trim().length >= 1){ doSearch(); }
+    else { hint.classList.remove('sm-on'); }
+  });
+  document.addEventListener('click', function(e){
+    if(!hint.contains(e.target) && e.target !== input && e.target !== searchBtn){
+      hint.classList.remove('sm-on');
+    }
+  });
+
+  /* 点赞 / 收藏 */
+  document.addEventListener('click', function(e){
+    var like = e.target.closest('.sm-like');
+    if(like){
+      var countEl = like.querySelector('.sm-count');
+      var liked = like.classList.toggle('sm-liked');
+      like.querySelector('.sm-ic').textContent = liked ? '♥' : '♡';
+      if(countEl){
+        var n = parseInt(countEl.textContent.replace(/[^\d]/g,''),10) || 0;
+        countEl.textContent = liked ? (n + 1) : Math.max(0, n - 1);
+      }
+      toast(liked ? '已点赞，感谢你的支持' : '已取消点赞');
+      return;
+    }
+    var save = e.target.closest('.sm-save');
+    if(save){
+      var saved = save.classList.toggle('sm-saved');
+      save.querySelector('.sm-ic').textContent = saved ? '★' : '☆';
+      toast(saved ? '已加入我的片单' : '已从片单移除');
+      return;
+    }
+  });
+
+  /* 分享弹窗 */
+  var shareModal = document.getElementById('smShareModal');
+  document.addEventListener('click', function(e){
+    if(e.target.closest('.sm-share')){
+      shareModal.classList.add('sm-on');
+    }
+  });
+  document.getElementById('smCopyLink').addEventListener('click', function(){
+    var text = '秘密基地 · 原创高清影像社区';
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ toast('链接已复制'); }).catch(function(){ toast('复制失败，请手动复制'); });
+    }else{
+      toast('当前环境不支持自动复制');
+    }
+    shareModal.classList.remove('sm-on');
+  });
+
+  /* 作者弹窗 */
+  var authorModal = document.getElementById('smAuthorModal');
+  var authorBody = document.getElementById('smAuthorBody');
+  var authorTitle = document.getElementById('smAuthorTitle');
+  document.querySelectorAll('.sm-author-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var parts = btn.getAttribute('data-author').split('|');
+      authorTitle.textContent = parts[0];
+      authorBody.innerHTML = '擅长领域与创作特点：' + parts[1] + '<br><br>作品数：<b>' + parts[2] + '</b> ｜ 粉丝数：<b>' + parts[3] + '</b><br><br>该创作者长期参与秘密基地官方企划，作品持续更新中。';
+      authorModal.classList.add('sm-on');
+    });
+  });
+  document.getElementById('smAuthorFollow').addEventListener('click', function(){
+    var btn = this;
+    var followed = btn.textContent === '已关注';
+    btn.textContent = followed ? '关注作者' : '已关注';
+    toast(followed ? '已取消关注' : '关注成功，将收到更新提醒');
+  });
+
+  /* 投稿弹窗 */
+  var submitModal = document.getElementById('smSubmitModal');
+  function openSubmit(){ submitModal.classList.add('sm-on'); }
+  document.getElementById('smSubmitTop').addEventListener('click', openSubmit);
+  document.getElementById('smSubmitBtn').addEventListener('click', openSubmit);
+  document.getElementById('smSubmitConfirm').addEventListener('click', function(){
+    var name = document.getElementById('smSubmitName').value.trim();
+    var title = document.getElementById('smSubmitTitleInput').value.trim();
+    if(!name || !title){
+      toast('请填写作者昵称与作品标题');
+      return;
+    }
+    submitModal.classList.remove('sm-on');
+    document.getElementById('smSubmitName').value = '';
+    document.getElementById('smSubmitTitleInput').value = '';
+    document.getElementById('smSubmitDesc').value = '';
+    toast('投稿已提交，编辑将在三个工作日内联系你');
+  });
+
+  /* 意见反馈链接 */
+  document.getElementById('smFeedbackLink').addEventListener('click', function(e){
+    e.preventDefault();
+    toast('反馈入口已记录，也可直接邮件联系官方');
+  });
+
+  /* 关闭弹窗 */
+  document.querySelectorAll('[data-close]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.getElementById(btn.getAttribute('data-close')).classList.remove('sm-on');
+    });
+  });
+  document.querySelectorAll('.sm-modal-mask').forEach(function(mask){
+    mask.addEventListener('click', function(e){ if(e.target === mask){ mask.classList.remove('sm-on'); } });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.sm-modal-mask.sm-on').forEach(function(m){ m.classList.remove('sm-on'); });
+    }
+  });
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('smTopBtn');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520){ topBtn.classList.add('sm-on'); }
+    else{ topBtn.classList.remove('sm-on'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+})();
+</script>
+</body>
+                                                                             </html>
